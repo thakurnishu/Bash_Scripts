@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo "_____________________________"
+
+echo " CREATE KEY PAIR       : 1 "
+echo " CREATE SECURITY GROUP : 2 "
+echo " LAUNCH INSTANCE       : 3 "
+echo " DELETE KEY PAIR       : 4 "
+echo " DELETE SECURITY GROUP : 5 "
+echo " INBOUND RULES IN sg   : 6 "
+echo " CREATE S3 BUCKET      : 7 "
+
+echo "_____________________________"
+
+read -p "what use what to do : " var
+
+if [ $var -eq 1 ]
+then
+	./main_Scripts/key_pair_create.sh
+elif [ $var -eq 2 ]
+then 
+	./main_Scripts/security_group_create.sh
+elif [ $var -eq 3 ]
+then
+	./main_Scripts/launch_instance.sh
+elif [ $var -eq 4 ]
+then 
+	./main_Scripts/key_pair_destroy.sh
+elif [ $var -eq 5 ]
+then
+	./main_Scripts/security_group_destroy.sh
+elif [ $var -eq 6 ]
+then 
+	./main_Scripts/security_group_inbound_rule.sh
+elif [ $var -eq 7 ]
+then 
+	./main_Scripts/create_s3_bucket.sh
+else
+	echo "Invalid Argument!"
+fi
